@@ -135,9 +135,7 @@
           <div class="post span6">
             <div class="row">
               <div class="span6">
-                  <script>
-                  console.log( "{{ post }}" );
-                  </script>
+                  <pre>{{ post }}</pre>
                   {% if post.photos %}
                   {% for photo in post.photos %}
                   {% if loop.index == 1 %}
