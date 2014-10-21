@@ -116,6 +116,7 @@
           </ul>
         </div>
           {% if site.tags %}
+          <pre>{{ site.tags }}</pre>
           <div class="tags">
               {% for tag in site.tags %}
               <a href="/tag/{{ tag.name }}">#{{ tag.name }}</a>
