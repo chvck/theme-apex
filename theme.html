@@ -136,9 +136,9 @@
             <div class="row">
               <div class="span6">
                   <pre>{{ post }}</pre>
-                  {% if post.raw_content.Imageurl %}
+                  {% if post.Imageurl %}
                   <div class="post-image">
-                              <img src="{{ photo.width_600 }}" />
+                              <img src="{{ post.Imageurl }}" />
                   </div>
                   {% endif %}
                 <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
