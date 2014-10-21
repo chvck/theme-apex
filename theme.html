@@ -63,7 +63,6 @@
         <div class="bg-img" style="background-image: url('{% if site.cover_photo %}{{ site.cover_photo }}{% else %}{{ assets['background.jpg'] }}{% endif %}');"></div>
         <div class="gradient"></div>
         <div class="title">
-          <h1>{{ site.name }}</h1>
           <ul class="social">
             {% if site.twitter %}
             <li>
@@ -108,7 +107,7 @@
         </a>
         <div class="site-description">
           <ul>
-          <li><a href="/">Blog</a></li>
+          <li><a href="/">{{ site.name }}</a></li>
           {% if pages %}
           {% for page in pages %}
           <li><a href="{{ page.permalink }}" class="{{ set_active(page.permalink) }}">{{ page.title }}</a></li>
@@ -136,6 +135,25 @@
           <div class="post span6">
             <div class="row">
               <div class="span6">
+                  {% if post.photos %}
+                  {% for photo in post.photos %}
+                  {% if loop.index == 1 %}
+                  <div class="post-image">
+                      {% if post.type == 'link' %}
+                      <a href="{{ post.url }}" target="_blank">
+                          {% else %}
+                          <a href="{{ post.permalink }}">
+                              {% endif %}
+                              {% if photo %}
+                              <img src="{{ photo.width_600 }}" />
+                              {% else %}
+                              <img src="http://placehold.it/400x300/0eafff/ffffff.png" alt="" />
+                              {% endif %}
+                          </a>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+                  {% endif %}
                 <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
               </div>
             </div>
