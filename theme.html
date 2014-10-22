@@ -47,13 +47,16 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-        window.onload = function() {
-            if ( screen.size < 480 ) {
-                document.getElementsByClassName( 'tag-cloud').style.display = none;
-            }
-        }
     </script>
     {% endif %}
+      <script>
+
+          window.onload = function() {
+              if ( screen.size < 480 ) {
+                  document.getElementsByClassName( 'tag-cloud').style.display = none;
+              }
+          }
+      </script>
   </head>
   <body>
 
