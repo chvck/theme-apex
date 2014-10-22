@@ -38,7 +38,7 @@
     -->
       <style>
           .tag-cloud {
-              width: 60%;
+              width: 100%;
               max-width: 1280px;
               margin: 5em auto 1em;
               text-align: center;
@@ -161,7 +161,6 @@
         <div class="site-description">
             {% if site.tags %}
             <div class="tag-cloud">
-                <h4>Tags</h4>
                 <ul>
                     {% for tag in site.tags %}
                     <li><a href="/tag/{{ tag.name }}">{{ tag.name }}</a></li>
