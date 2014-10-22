@@ -36,6 +36,59 @@
        */
     </style>
     -->
+      <style>
+          .tag-cloud {
+              width: 60%;
+              max-width: 1280px;
+              margin: 5em auto 1em;
+              text-align: center;
+          }
+
+          .tag-cloud h4 {
+              font-weight: bold;
+              padding-bottom: 2em;
+          }
+
+          .tag-cloud ul {
+              margin: 0;
+              padding: 0;
+              list-style: none;
+          }
+
+          .tag-cloud li {
+              display: inline-block;
+              margin: 5px;
+          }
+
+          .tag-cloud a,
+          .tag-cloud a:visited {
+              transition-property: all;
+              -webkit-transition-property: all;
+              transition-duration: 0.2s;
+              -webkit-transition-duration: 0.2s;
+              transition-timing-function: ease-in-out;
+              -webkit-transition-timing-function: ease-in-out;
+              transition-delay: initial;
+              -webkit-transition-delay: initial;
+              display: inline-block;
+              background-color: rgb(175, 183, 181);
+              color: rgb(255, 255, 255);
+              padding-top: 1px;
+              padding-right: 10px;
+              padding-bottom: 1px;
+              padding-left: 10px;
+              border-top-left-radius: 15px;
+              border-top-right-radius: 15px;
+              border-bottom-right-radius: 15px;
+              border-bottom-left-radius: 15px;
+              font-size: 0.9rem;
+          }
+
+          .tag-cloud a:hover,
+          .tag-cloud a:focus {
+              background-color: rgb(55, 204, 162);
+          }
+      </style>
 
     {% if site.analytics %}
     <script>
@@ -106,9 +159,18 @@
           <img class="avatar" src="{{ site.avatar }}" alt="{{ site.author }}" width="100%" height="100%" />
         </a>
         <div class="site-description">
+            {% if site.tags %}
+            <div class="tag-cloud">
+                <h4>Tags</h4>
+                <ul>
+                    {% for tag in site.tags %}
+                    <li><a href="/tag/{{ tag.name }}">{{ tag.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
           <ul>
           <li><a href="/">{{ site.name }}</a></li>
-              <pre>{{ pages }}</pre>
           {% if pages %}
           {% for page in pages %}
           <li><a href="{{ page.permalink }}" class="{{ set_active(page.permalink) }}">{{ page.title }}</a></li>
