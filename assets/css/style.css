@@ -1008,17 +1008,9 @@ div.footer ul li.link-icon a {
 
 .tag-cloud {
     width: 100%;
+    max-width: 1280px;
     margin: 5em auto 1em;
     text-align: center;
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    text-align: center;
-    padding: 30px 30px 130px 30px;
 }
 
 .tag-cloud h4 {
