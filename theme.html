@@ -89,10 +89,10 @@ p img {
 
           {% if posts %}
           {% for post in posts %}
-				<hr>
                 <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
               {{ post.content }}
                 <p class="date">Posted at {{ post.created_at|format_date }}</p>
+				<hr>
           {% endfor %}
           {% if not is_tag %}
             {% if pagination.prev %}<a href="{{ pagination.prev }}" class="post-prev">&larr; View Previous Posts</a>{% endif %}
