@@ -88,15 +88,16 @@ p img {
 
           {% if posts %}
           {% for post in posts %}
-				<hr>
                 <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
               {{ post.content }}
                 <p class="date">Posted at {{ post.created_at|format_date }}</p>
           {% endfor %}
           {% if not is_tag %}
-          <hr>
             {% if pagination.prev %}<a href="{{ pagination.prev }}" class="post-prev">&larr; View Previous Posts</a>{% endif %}
             {% if pagination.next %}<a href="{{ pagination.next }}" class="post-next">View More Posts &rarr;</a>{% endif %}
+          {% endif %}
+          {% else %}
+          <h4 class="sub-heading span6">No Posts Yet :(</h4>
           {% endif %}
 
       {% elif post %}
@@ -109,10 +110,7 @@ p img {
             <p><a href="{{ post.url }}"><i class="icon-share"></i> {{ post.url }}</a></p>
             {% endif %}
 
-            {{ theme.social.bar }}
-
             {% if post.tags %}
-            <hr>
             <h3>Tags</h3>
             <ul class="post-tags">
             {% for tag in post.tags %}
@@ -123,7 +121,6 @@ p img {
             <p class="back"><a href="/">&laquo; Go Back</a></p>
             
           {% if site.disqus %}
-          <hr>
           <div class="post-comments">
             <div id="disqus_thread"></div>
             <script>
