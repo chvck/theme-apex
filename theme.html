@@ -13,108 +13,56 @@
 
     {{ header_meta }}
 
-    <link rel="stylesheet" type="text/css" href="{{ assets('css/style.css') }}">
+	<meta name="author" content="chvck">
 
-    <!--[if IE 7]>
-      <link href="http://postach.io/static/themes/_assets/fontawesome/css/font-awesome-ie7.min.css" rel="stylesheet">
-    <![endif]-->
 
-    <!--
-    <style>
-      /**
-       * Your custom override CSS goes here. If you wanted to override the default link colour and hover state, you would do this:
-       *
-       *  a {
-       *      color: #333; /* Override the default colour with a not-quite-black that is easy on the eyes on white screens */
-       *  }
-       *
-       *  a:hover {
-       *      color: #545454; /* This will now change the hover state as well */
-       *  }
-       *
-       *  You can put anything you want to override in here, so be creative!
-       */
-    </style>
-    -->
+	<meta name="description" content="A site, mostly, about me and things that I do.">
 
-    {% if site.analytics %}
-    <script>
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '{{ site.analytics }}']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    </script>
-    {% endif %}
-      <script>
 
-          window.onload = function() {
-              if ( screen.width < 480 ) {
-                  var thing = document.getElementById( 'tag-cloud');
-                  thing.style.display = "none";
-              }
-          }
-      </script>
-  </head>
+	<!-- OpenGraph tags -->
+	<meta property="og:site_name" content="chvck.co.uk">
+
+	<meta property="og:image" content="http://www.gravatar.com/avatar/3c7055a61f3e23511c27771d70897053?s=256&d=mm&r=g">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="chvck.co.uk">
+	<meta property="og:url" content="http://chvck.co.uk">
+	<meta property="og:description" content="A site, mostly, about me and things that I do.">
+
+
+	<!-- Twitter Cards -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@https://twitter.com/chvck">
+
+	<meta name="twitter:creator" content="@https://twitter.com/chvck">
+	<meta name="twitter:image:src" content="http://www.gravatar.com/avatar/3c7055a61f3e23511c27771d70897053?s=256&d=mm&r=g">
+	<meta name="twitter:domain" content="http://chvck.co.uk">
+
+
+	<link rel="canonical" href="http://chvck.co.uk/" />
+
+
+	<!-- RSS feed -->
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://chvck.co.uk/feed.xml">
+
+</head>
+<style>
+body {
+	width: 85%;
+	text-align: left;
+	font-family: "Times New Roman"; 
+	margin-left: auto;
+	margin-right: auto;
+	color: #333333;
+}
+
+p img {
+	text-align: center;
+}
+</style>
   <body>
-
-    {% if is_login %}
-
-      {{ login_form }}
-
-    {% else  %}
-
-    <div class="row">
-      <div class="span4 header">
-        <div class="bg-img" style="background-image: url('{% if site.cover_photo %}{{ site.cover_photo }}{% else %}{{ assets['background.jpg'] }}{% endif %}');"></div>
-        <div class="gradient"></div>
-        <div class="title">
-          <ul class="social">
-            {% if site.twitter %}
-            <li>
-              <a href="{{ site.twitter }}" title="Twitter" target="_blank">
-                <i class="icon-twitter"></i>
-              </a>
-            </li>
-            {% endif %}
-
-            {% if site.facebook %}
-            <li>
-              <a href="{{ site.facebook }}" title="Facebook" target="_blank">
-                <i class="icon-facebook-sign"></i>
-              </a>
-            </li>
-            {% endif %}
-
-            {% if site.googleplus %}
-            <li>
-              <a href="{{ site.googleplus }}?rel=author" title="Google+" target="_blank">
-                <i class="icon-google-plus"></i>
-              </a>
-            </li>
-            {% endif %}
-
-            {% if site.linkedin %}
-            <li>
-              <a href="{{ site.linkedin }}" title="LinkedIn" target="_blank">
-                <i class="icon-linkedin"></i>
-              </a>
-            </li>
-            {% endif %}
-            <li>
-              <a href="{{ site.atom_url }}" title="RSS" target="_blank">
-                <i class="icon-rss"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <a class="logo" href="/">
-          <img class="avatar" src="{{ site.avatar }}" alt="{{ site.author }}" width="100%" height="100%" />
-        </a>
-        <div class="site-description">
+        <h1>
+			<a href="/">chvck.co.uk</a>
+        </h1>
             <!--{% if site.tags %}
             <div class="tag-cloud" id="tag-cloud">
                 <ul>
@@ -131,17 +79,8 @@
           {% endfor %}
           {% endif %}
           </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="row wrapper">
-
-      <div class="span4 spacer"></div>
 
       {% if is_home or is_tag %}
-
-      <div class="span6 offset1 posts">
 
           {% if is_tag %}
           <h4 class="sub-heading span6">Showing all posts tagged {{ tag }}:</h4>
@@ -149,55 +88,24 @@
 
           {% if posts %}
           {% for post in posts %}
-          <div class="post span6">
-            <div class="row">
-              <div class="span6">
                 <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
-              </div>
-            </div>
-            <div class="post-body" data-type-cleanup="true">
               {{ post.content }}
-            </div>
-            <div class="post-info">
-              <div class="info-left">
                 <p class="date">{{ post.created_at|format_date }}</p>
-              </div>
-              <div class="info-right">
                 <p class="read-more"><a href="{{ post.permalink }}">Read More &raquo;</a></p>
-              </div>
-            </div>
-          </div>
           {% endfor %}
           {% if not is_tag %}
-          <div class="pagination span6">
             {% if pagination.prev %}<a href="{{ pagination.prev }}" class="post-prev">&larr; View Previous Posts</a>{% endif %}
             {% if pagination.next %}<a href="{{ pagination.next }}" class="post-next">View More Posts &rarr;</a>{% endif %}
-          </div>
           {% endif %}
           {% else %}
           <h4 class="sub-heading span6">No Posts Yet :(</h4>
           {% endif %}
-      </div>
 
       {% elif post %}
 
-      <div class="span6 offset1 posts">
-        <div class="post whole span6">
           <h1>{{ post.title }}</h1>
-          <div class="post-info">
-            <div class="info-left">
               <p class="date">{{ post.created_at|format_date }}</p>
-            </div>
-            <div class="info-right">
-              <p class="comments">
-                <a href="/"><i class="icon-comment"></i> 0</a>
-              </p>
-            </div>
-          </div>
-          <div class="post-body">
-            <div class="post-content" data-type-cleanup="true">
               {{ post.content }}
-            </div>
 
             {% if post.type == 'link' %}
             <p><a href="{{ post.url }}"><i class="icon-share"></i> {{ post.url }}</a></p>
@@ -212,10 +120,8 @@
             {% endfor %}
             </ul>
             {% endif %}
-          </div>
-          <div class="post-footer">
             <p class="back"><a href="/">&laquo; Go Back</a></p>
-          </div>
+            
           {% if site.disqus %}
           <div class="post-comments">
             <div id="disqus_thread"></div>
@@ -230,33 +136,15 @@
             </script>
           </div>
           {% endif %}
-        </div>
-      </div>
 
     {% elif post.type == 'page' %}
 
-      <div class="span6 offset1 posts">
-        <div class="post whole span6">
           <h1>{{ page.title }}</h1>
-          <div class="post-body" data-type-cleanup="true">
             {{ page.content }}
-          </div>
-          <div class="post-footer">
             <p class="back"><a href="/">&laquo; Go Back</a></p>
-          </div>
-        </div>
-      </div>
 
     {% endif %}
 
-    </div>
-
-    {% endif %}
-
-    {{ footer_meta }}
-
-    <!-- bootstrap -->
-    <script src="http://postach.io/static/themes/_assets/bootstrap/js/bootstrap.min.js" /></script>
-    
+    {{ footer_meta }}    
   </body>
 </html>
