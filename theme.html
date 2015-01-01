@@ -75,16 +75,6 @@ img {
         <h1>
 			<a href="/">chvck.co.uk</a>
         </h1>
-        <a href="{{ site.atom_url }}" title="RSS" target="_blank">
-          <i class="icon-rss"></i> RSS
-        </a>
-            {% if site.twitter %}
-            <li>
-              <a href="{{ site.twitter }}" title="Twitter" target="_blank">
-                <i class="icon-twitter"></i> Twitter
-              </a>
-            </li>
-            {% endif %}
 		<hr>
           <ul>
           {% if pages %}
@@ -145,22 +135,6 @@ img {
             </ul>
             {% endif %}
             <p class="back"><a href="/">&laquo; Go Back</a></p>
-            
-          {% if site.disqus %}
-          <hr>
-          <div class="post-comments">
-            <div id="disqus_thread"></div>
-            <script>
-              var disqus_shortname = '{{ site.disqus }}';
-              var disqus_url = '{{site.base_url}}{{ post.permalink }}';
-              (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-            </script>
-          </div>
-          {% endif %}
 
     {% elif post.type == 'page' %}
 
@@ -169,6 +143,15 @@ img {
             <p class="back"><a href="/">&laquo; Go Back</a></p>
 
     {% endif %}
+            <hr>
+        <a href="{{ site.atom_url }}" title="RSS" target="_blank">
+          RSS
+        </a>
+		{% if site.twitter %}
+		  <a href="{{ site.twitter }}" title="Twitter" target="_blank">
+			Twitter
+		  </a>
+		{% endif %}
 
     {{ footer_meta }}    
   </body>
