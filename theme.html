@@ -72,11 +72,18 @@ img {
   <body>
         <h1>
 			<a href="/">chvck.co.uk</a>
-			<hr>
         </h1>
         <a href="{{ site.atom_url }}" title="RSS" target="_blank">
           <i class="icon-rss"></i> RSS
         </a>
+            {% if site.twitter %}
+            <li>
+              <a href="{{ site.twitter }}" title="Twitter" target="_blank">
+                <i class="icon-twitter"></i> Twitter
+              </a>
+            </li>
+            {% endif %}
+	<hr>
           <ul>
           {% if pages %}
           {% for page in pages %}
