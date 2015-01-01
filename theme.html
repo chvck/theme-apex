@@ -118,7 +118,7 @@ img {
       {% elif post %}
 
           <h1>{{ post.title }}</h1>
-              <p class="date">Posted at {{ post.created_at|format_date }}</p>
+              <p class="date">Posted on {{ post.created_at|format_date }}</p>
               {{ post.content }}
 
             {% if post.type == 'link' %}
