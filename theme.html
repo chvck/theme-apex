@@ -44,7 +44,7 @@
 	<!-- RSS feed -->
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://chvck.co.uk/feed.xml">
 	
-	<LINK rel="SHORTCUT ICON" href="http://chvck.co.uk/favicon.ico">
+	<LINK rel="SHORTCUT ICON" href="https://lh4.googleusercontent.com/-Wl3wzFkTtwo/VKVbSRRpkCI/AAAAAAAAGpM/Ql5E49xiUyE/s800/favicon.jpg">
 
 </head>
 <style>
@@ -94,7 +94,7 @@ img {
           {% for post in posts %}
                 <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
               {{ post.content }}
-                <p class="date">Posted at {{ post.created_at|format_date }}</p>
+                <p class="date">Posted on {{ post.created_at|format_date }}</p>
 				<hr>
           {% endfor %}
           {% if not is_tag %}
