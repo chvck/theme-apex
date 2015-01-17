@@ -1058,14 +1058,3 @@ div.footer ul li.link-icon a {
     background-color: rgb(55, 204, 162);
 }
 
-img {
-	border: 1px solid #333333
-}
-
-img.preview {
-	width: 100px;
-	height: 100px;
-	display: block;
-	float: left;
-	margin-right: 5px;
-}
