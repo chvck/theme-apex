@@ -1057,3 +1057,7 @@ div.footer ul li.link-icon a {
 .tag-cloud a:focus {
     background-color: rgb(55, 204, 162);
 }
+
+img {
+	border: 1px solid #333333
+}
