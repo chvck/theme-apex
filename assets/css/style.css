@@ -1061,3 +1061,7 @@ div.footer ul li.link-icon a {
 img {
 	border: 1px solid #333333
 }
+
+img.preview {
+	width: 100px;
+}
