@@ -105,7 +105,8 @@ hr {
 	display: block;
 }
 
-.post {
+.post-content-photo {
+	height: 102px;
 }
 
 </style>
@@ -150,7 +151,11 @@ hr {
 					{% endfor %}
 				{% endif %}
 				<div class="post-contents">
+					{% if post.photos %}
+					<div class="post-content post-content-photo">
+					{% else %}
 					<div class="post-content">
+					{% endif %}
 						{{ post.content }}
 					</div>
 					<p class="date">Posted on {{ post.created_at|format_date }}</p>
